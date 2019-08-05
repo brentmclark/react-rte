@@ -1,15 +1,20 @@
 /* @flow */
 
 import React from 'react';
-import cx from 'classnames';
+import styled from 'styled-components';
 
-import styles from './ButtonWrap.css';
+const Wrapper = styled.div`
+  display: inline-block;
+  position: relative;
+  /* This ensures the popover will show on top of the editor. */
+  z-index: 10;
+`;
 
 type Props = {
   className?: string;
 };
 
 export default function ButtonWrap(props: Props) {
-  let className = cx(props.className, styles.root);
-  return <div {...props} className={className} />;
+  const {className} = props;
+  return <Wrapper {...props} className={className} />;
 }
